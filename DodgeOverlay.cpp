@@ -198,8 +198,8 @@ void DodgeOverlayPlugin::RenderImGui() {
 		ImColor color = (std::abs(stickLocation.x) + std::abs(stickLocation.y) < dodgeDeadzone) ? ImColor(1.0f, 0.0f, 0.0f, dodgeDeadzoneCrossedAlpha) : ImColor(0.0f, 1.0f, 0.0f, dodgeDeadzoneCrossedAlpha);
 		drawList->AddQuadFilled(stickCenter + ImVec2(-radius + 1.0f, radius - 1.0f), stickCenter + ImVec2(radius - 1.0f, radius - 1.0f), stickCenter + ImVec2(radius - 1.0f, -radius + 1.0f), stickCenter + ImVec2(-radius + 1.0f, -radius + 1.0f), color);
 		if (showNums) {
-			drawList->AddText(stickCenter + ImVec2(-radius, radius), dodgeDeadzoneColor, ("X: " + std::format("{:.2f}", stickLocation.x)).c_str());
-			drawList->AddText(stickCenter + ImVec2(0, radius), dodgeDeadzoneColor, ("Y: " + std::format("{:.2f}", stickLocation.y)).c_str());
+			drawList->AddText(stickCenter + ImVec2(-radius, radius), stickLocationColor, ("X: " + std::format("{:.2f}", stickLocation.x)).c_str());
+			drawList->AddText(stickCenter + ImVec2(0, radius), stickLocationColor, ("Y: " + std::format("{:.2f}", stickLocation.y)).c_str());
 		}
 
 		PopStyleVar(2);
