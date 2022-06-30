@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ImGUI">
+      <UniqueIdentifier>{b71f1aae-2c8d-4823-82c0-f1f2fd3fd4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ImGUI\Headers">
+      <UniqueIdentifier>{a90e14fd-8c7b-4f92-9d6d-716bb1fe7b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGUI\Sources">
+      <UniqueIdentifier>{996eef6b-1471-4308-8cee-568dc207c7c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DodgeOverlay.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imconfig.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_additions.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_impl_dx11.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_impl_win32.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_internal.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_rangeslider.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_searchablecombo.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_timeline.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imguivariouscontrols.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imstb_rectpack.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imstb_textedit.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imstb_truetype.h">
+      <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DodgeOverlay.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_additions.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_demo.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_draw.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_impl_dx11.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_impl_win32.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_rangeslider.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_searchablecombo.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_timeline.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_widgets.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imguivariouscontrols.cpp">
+      <Filter>ImGUI\Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
