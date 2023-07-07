@@ -3,7 +3,7 @@
 using std::string;
 using namespace DodgeOverlay;
 
-BAKKESMOD_PLUGIN(DodgeOverlayPlugin, "Dodge Overlay", "0.0.1", 0)
+BAKKESMOD_PLUGIN(DodgeOverlayPlugin, "Dodge Overlay", "0.0.2", 0)
 
 void DodgeOverlayPlugin::onLoad() {
 	dodgeDeadzone = gameWrapper->GetSettings().GetGamepadSettings().DodgeInputThreshold;
@@ -64,7 +64,7 @@ void DodgeOverlayPlugin::onLoad() {
 		cvarManager->loadCfg(configurationFilePath.string());
 	}
 
-	gameWrapper->HookEvent("Function TAGame.PlatformMetrics_TA.RecordDriveInput", [this](std::string) {
+	gameWrapper->HookEvent("Function TAGame.PlayerInput_TA.PlayerInput", [this](std::string) {
 		CarWrapper car = gameWrapper->GetLocalCar();
 		if (car) {
 			PlayerControllerWrapper pc = car.GetPlayerController();
