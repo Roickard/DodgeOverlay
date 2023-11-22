@@ -3,7 +3,7 @@
 using std::string;
 using namespace DodgeOverlay;
 
-BAKKESMOD_PLUGIN(DodgeOverlayPlugin, "Dodge Overlay", "0.0.2", 0)
+BAKKESMOD_PLUGIN(DodgeOverlayPlugin, "Dodge Overlay", "0.0.3", 0)
 
 void DodgeOverlayPlugin::onLoad() {
 	dodgeDeadzone = gameWrapper->GetSettings().GetGamepadSettings().DodgeInputThreshold;
@@ -72,7 +72,8 @@ void DodgeOverlayPlugin::onLoad() {
 				ControllerInput inputs = pc.GetVehicleInput();
 				stickLocation.x = inputs.DodgeStrafe;
 				stickLocation.y = inputs.DodgeForward;
-				
+				if (fabs(stickLocation.x - 0.0) <= 1e-6)
+					stickLocation.x = inputs.Roll;
 			}
 		}
 	});
