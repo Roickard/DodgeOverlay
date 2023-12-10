@@ -32,6 +32,7 @@ namespace DodgeOverlay {
 		ImVec2 stickLocation = ImVec2();
 		float stickLocationSize = 5.0f;
 		float dodgeDeadzone = 0.0f;
+		float dodgeDeadzoneRoll = 0.0f;
 		bool showDodgeDeadzoneBorder = true;
 		float dodgeDeadzoneBorderThickness = 1.0f;
 		float dodgeDeadzoneCrossedAlpha = 0.1f;
