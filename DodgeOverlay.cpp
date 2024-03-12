@@ -42,7 +42,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_windowPosition.x = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayWinXPos"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayWinXPos", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayWinYPos
     if((tempCvar = cvarManager->getCvar("dodgeoverlayWinYPos")).IsNull()) {
@@ -53,7 +53,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_windowPosition.y = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeOverlayWinYPos"] = tempCvar;
+    m_localCvars.insert({"dodgeOverlayWinYPos", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayScale
     if((tempCvar = cvarManager->getCvar("dodgeoverlayScale")).IsNull()) {
@@ -64,7 +64,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_scale = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayScale"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayScale", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayShowNums
     if((tempCvar = cvarManager->getCvar("dodgeoverlayShowNums")).IsNull()) {
@@ -75,7 +75,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_fShowNums = now.getBoolValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayShowNums"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayShowNums", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayStickBorderColor
     if((tempCvar = cvarManager->getCvar("dodgeoverlayStickBorderColor")).IsNull()) {
@@ -87,7 +87,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_stickBorderColor = ImColor(color.R, color.G, color.B, color.A);
             writeCfg();
         });
-    m_localCvars["dodgeoverlayStickBorderColor"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayStickBorderColor", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayStickLocationColor
     if((tempCvar = cvarManager->getCvar("dodgeoverlayStickLocationColor")).IsNull()) {
@@ -99,7 +99,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_stickLocationColor = ImColor(color.R, color.G, color.B, color.A);
             writeCfg();
         });
-    m_localCvars["dodgeoverlayStickLocationColor"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayStickLocationColor", tempCvar});
 #pragma endregion 
 #pragma region dodgeoverlayDodgeDeadzoneColor
     if((tempCvar = cvarManager->getCvar("dodgeoverlayDodgeDeadzoneColor")).IsNull()) {
@@ -111,7 +111,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_dodgeDeadzoneColor = ImColor(color.R, color.G, color.B, color.A);
             writeCfg();
         });
-    m_localCvars["dodgeoverlayDodgeDeadzoneColor"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayDodgeDeadzoneColor", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayStickLocationSize
     if((tempCvar = cvarManager->getCvar("dodgeoverlayStickLocationSize")).IsNull()) {
@@ -122,7 +122,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_stickLocationSize = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayStickLocationSize"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayStickLocationSize", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayShowDodgeDeadzoneBorder
     if((tempCvar = cvarManager->getCvar("dodgeoverlayShowDodgeDeadzoneBorder")).IsNull()) {
@@ -133,7 +133,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_fShowDodgeDeadzoneBorder = now.getBoolValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayShowDodgeDeadzoneBorder"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayShowDodgeDeadzoneBorder", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayDodgeDeadzoneBorderThickness
     if((tempCvar = cvarManager->getCvar("dodgeoverlayDodgeDeadzoneBorderThickness")).IsNull()) {
@@ -144,7 +144,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_dodgeDeadzoneBorderThickness = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayDodgeDeadzoneBorderThickness"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayDodgeDeadzoneBorderThickness", tempCvar});
 #pragma endregion
 #pragma region dodgeoverlayDodgeDeadzoneCrossedAlpha
     if((tempCvar = cvarManager->getCvar("dodgeoverlayDodgeDeadzoneCrossedAlpha")).IsNull()) {
@@ -155,7 +155,7 @@ void DodgeOverlayPlugin::onLoad() {
             m_dodgeDeadzoneCrossedAlpha = now.getFloatValue();
             writeCfg();
         });
-    m_localCvars["dodgeoverlayDodgeDeadzoneCrossedAlpha"] = tempCvar;
+    m_localCvars.insert({"dodgeoverlayDodgeDeadzoneCrossedAlpha", tempCvar});
 #pragma endregion
 #pragma endregion
 
@@ -196,32 +196,32 @@ void DodgeOverlayPlugin::onLoad() {
 void DodgeOverlayPlugin::RenderSettings() {
     using namespace ImGui;
     if (DragFloat("Window position x", &m_windowPosition.x, 1.0f, 50.0f * m_finalScale, m_displaySize.x - m_windowSize.x / 4, "%.1f")) {
-        m_localCvars["dodgeoverlayWinXPos"].setValue(m_windowPosition.x);
+        m_localCvars.at("dodgeoverlayWinXPos").setValue(m_windowPosition.x);
     }
     if (DragFloat("Window position y", &m_windowPosition.y, 1.0f, (50.0f) * m_finalScale, m_displaySize.y - m_windowSize.x / 4 - m_fShowNums * 12.0f * m_finalScale, "%.1f")) {
-        m_localCvars["dodgeoverlayWinYPos"].setValue(m_windowPosition.y);
+        m_localCvars.at("dodgeoverlayWinYPos").setValue(m_windowPosition.y);
     };
 
     if (DragFloat("Scale", &m_scale, 0.1f, 1.0f, 10.0f, "%.1f")) {
-        m_localCvars["dodgeoverlayScale"].setValue(m_scale);
+        m_localCvars.at("dodgeoverlayScale").setValue(m_scale);
     };
     Text(("Final scale: " + std::to_string(m_finalScale)).c_str());
     if (DragFloat("Stick location size", &m_stickLocationSize, 0.1f, 1.0f, 100.0f, "%.1f")) {
-        m_localCvars["dodgeoverlayStickLocationSize"].setValue(m_stickLocationSize);
+        m_localCvars.at("dodgeoverlayStickLocationSize").setValue(m_stickLocationSize);
     };
     if (Checkbox("Show only dodge deadzone border", &m_fShowDodgeDeadzoneBorder)) {
-        m_localCvars["dodgeoverlayShowDodgeDeadzoneBorder"].setValue(m_fShowDodgeDeadzoneBorder);
+        m_localCvars.at("dodgeoverlayShowDodgeDeadzoneBorder").setValue(m_fShowDodgeDeadzoneBorder);
     };
     if (m_fShowDodgeDeadzoneBorder) {
         if (DragFloat("Dodge deadzone border thickness", &m_dodgeDeadzoneBorderThickness, 0.1f, 0.1f, 10.0f, "%.1f")) {
-            m_localCvars["dodgeoverlayDodgeDeadzoneBorderThickness"].setValue(m_dodgeDeadzoneBorderThickness);
+            m_localCvars.at("dodgeoverlayDodgeDeadzoneBorderThickness").setValue(m_dodgeDeadzoneBorderThickness);
         };
     }
     if (Checkbox("Show outputs nums", &m_fShowNums)) {
-        m_localCvars["dodgeoverlayShowNums"].setValue(m_fShowNums);
+        m_localCvars.at("dodgeoverlayShowNums").setValue(m_fShowNums);
     };
     if (DragFloat("Background color alpha when deadzone has been crossed", &m_dodgeDeadzoneCrossedAlpha, 0.01f, 0.0f, 1.0f, "%.2f")) {
-        m_localCvars["dodgeoverlayDodgeDeadzoneCrossedAlpha"].setValue(m_dodgeDeadzoneCrossedAlpha);
+        m_localCvars.at("dodgeoverlayDodgeDeadzoneCrossedAlpha").setValue(m_dodgeDeadzoneCrossedAlpha);
     };
     {
         float* colors[4] = { &m_stickBorderColor.Value.x, &m_stickBorderColor.Value.y, &m_stickBorderColor.Value.z, &m_stickBorderColor.Value.w };
@@ -231,7 +231,7 @@ void DodgeOverlayPlugin::RenderSettings() {
             color.G = m_stickBorderColor.Value.y;
             color.B = m_stickBorderColor.Value.z;
             color.A = m_stickBorderColor.Value.w;
-            m_localCvars["dodgeoverlayStickBorderColor"].setValue(color);
+            m_localCvars.at("dodgeoverlayStickBorderColor").setValue(color);
         };
     }
     {
@@ -242,7 +242,7 @@ void DodgeOverlayPlugin::RenderSettings() {
             color.G = m_stickLocationColor.Value.y;
             color.B = m_stickLocationColor.Value.z;
             color.A = m_stickLocationColor.Value.w;
-            m_localCvars["dodgeoverlayStickLocationColor"].setValue(color);
+            m_localCvars.at("dodgeoverlayStickLocationColor").setValue(color);
         };
     }
     {
@@ -253,7 +253,7 @@ void DodgeOverlayPlugin::RenderSettings() {
             color.G = m_dodgeDeadzoneColor.Value.y;
             color.B = m_dodgeDeadzoneColor.Value.z;
             color.A = m_dodgeDeadzoneColor.Value.w;
-            m_localCvars["dodgeoverlayDodgeDeadzoneColor"].setValue(color);
+            m_localCvars.at("dodgeoverlayDodgeDeadzoneColor").setValue(color);
         };
     }
 
